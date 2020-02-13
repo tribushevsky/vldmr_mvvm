@@ -1,0 +1,37 @@
+//
+//  {{ prefix }}{{ module_info.name }}ViewModel.swift
+{% include 'header' %}
+
+import RxSwift
+import RxCocoa
+
+struct {{ prefix }}Base{{ module_info.name }}Context : {{ prefix }}{{ module_info.name }}Context {
+    
+}
+
+class {{ prefix }}{{ module_info.name }}ViewModel : ViewModelType {
+	typealias In = Input
+    typealias Out = Output
+
+    struct Input {
+
+    }
+
+    struct Output {
+
+    }
+
+    let context: {{ prefix }}{{ module_info.name }}Context
+    let useCase: {{ prefix }}{{ module_info.name }}UseCase
+    let navigator: {{ prefix }}{{ module_info.name }}Navigator
+
+    init(context: {{ prefix }}{{ module_info.name }}Context, useCase: {{ prefix }}{{ module_info.name }}UseCase, navigator: {{ prefix }}{{ module_info.name }}Navigator) {
+        self.context = context
+        self.useCase = useCase
+        self.navigator = navigator
+    }
+
+    func transform(input: Input) -> Output {
+        return Output()
+    }
+}

@@ -1,0 +1,17 @@
+# Template information section
+name: vldmr_mvvm
+summary: Swift generamba template for the iOS Clean Architecture  updated and by VLDMR.
+author: VLDMR
+version: 1.0.0
+license: "MIT"
+
+# The declarations for code files
+code_files:
+
+- {name: Protocol.swift, path: Code/protocol.swift.liquid}
+- {name: UseCase.swift, path: Code/use_case.swift.liquid}
+- {name: Navigator.swift, path: Code/navigator.swift.liquid}
+- {name: ViewModel.swift, path: Code/view_model.swift.liquid}
+- {name: Controller.swift, path: Code/controller.swift.liquid}
+- {name: Controller.xib, path: Code/controller.xib.liquid}
+

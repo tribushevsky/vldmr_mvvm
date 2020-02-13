@@ -1,0 +1,38 @@
+//
+//  {{ prefix }}{{ module_info.name }}Controller.swift
+{% include 'header' %}
+
+import RxSwift
+import RxCocoa
+
+class {{ prefix }}{{ module_info.name }}Controller : {{ prefix }}ViewController {
+	var viewModel: {{ prefix }}{{ module_info.name }}ViewModel!
+
+	init(viewModel: {{ prefix }}{{ module_info.name }}ViewModel) {
+	    self.viewModel = viewModel
+	    super.init(nibName: "{{ prefix }}{{ module_info.name }}Controller", bundle: nil)
+	}
+
+	private override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+	    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+	}
+
+	@available(swift, deprecated: 4.0, obsoleted: 4.0, message: "Use init(viewModel: {{ prefix }}{{ module_info.name }}ViewModel)")
+	init() { super.init(nibName: nil, bundle: nil) }
+
+	override func viewDidLoad() {
+	    super.viewDidLoad()
+	    localize()
+	    setupBinding()
+	}
+
+	private func setupBinding() {
+	    let input = {{ prefix }}{{ module_info.name }}ViewModel.Input()
+	    let output = viewModel.transform(input: input)
+	    
+	}
+
+	private func localize() {
+	    
+	}	
+}
