@@ -35,4 +35,22 @@ class {{ prefix }}{{ module_info.name }}Controller : {{ prefix }}ViewController 
 	private func localize() {
 	    
 	}	
+
+	//private func register{{ module_info.name }}(container: Container) {
+	//    container.register({{ prefix }}{{ module_info.name }}Controller.self) { r in
+	//        return {{ prefix }}{{ module_info.name }}Controller(viewModel: r.resolve({{ prefix }}{{ module_info.name }}ViewModel.self)!)
+	//    }
+	//    
+	//    container.register({{ prefix }}{{ module_info.name }}ViewModel.self) { r in
+	//        return {{ prefix }}{{ module_info.name }}ViewModel(context: r.resolve({{ prefix }}{{ module_info.name }}Context.self)!,
+	//                                useCase: r.resolve({{ prefix }}{{ module_info.name }}UseCase.self)!,
+	//                                navigator: r.resolve({{ prefix }}{{ module_info.name }}Navigator.self)!)
+	//    }
+	//    container.register({{ prefix }}{{ module_info.name }}Context.self) { _ in return {{ prefix }}Base{{ module_info.name }}Context() }
+	//    container.register({{ prefix }}{{ module_info.name }}UseCase.self) { r in return {{ prefix }}Base{{ module_info.name }}UseCase() }
+	//    container.register({{ prefix }}{{ module_info.name }}Navigator.self) { r in
+	//        return {{ prefix }}Base{{ module_info.name }}Navigator(navigationController: UINavigationController(),
+	//                                    dependencyResolver: r.resolve({{ prefix }}DependencyResolver.self)!)
+	//    }
+	//}
 }

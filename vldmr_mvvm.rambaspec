@@ -14,4 +14,3 @@ code_files:
 - {name: ViewModel.swift, path: Code/view_model.swift.liquid}
 - {name: Controller.swift, path: Code/controller.swift.liquid}
 - {name: Controller.xib, path: Code/controller.xib.liquid}
-
