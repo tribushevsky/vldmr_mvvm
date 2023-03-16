@@ -6,45 +6,56 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class {{ prefix }}{{ module_info.name }}Controller: {{ prefix }}ViewController {
-	var viewModel: {{ prefix }}{{ module_info.name }}ViewModel!
-
-	init(viewModel: {{ prefix }}{{ module_info.name }}ViewModel) {
-	    self.viewModel = viewModel
-	    super.init(nibName: "{{ prefix }}{{ module_info.name }}Controller", bundle: nil)
-	}
-
-	private override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-	    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-	}
+class {{ prefix }}{{ module_info.name }}Controller: {{ prefix }}ViewController<{{ prefix }}{{ module_info.name }}ViewModel> {
 
 	override func viewDidLoad() {
 	    super.viewDidLoad()
 	    
+	    setupView()
 	    localize()
 	    setupBinding()
 	}	
 
-	//private func register{{ module_info.name }}(container: Container) {
-	//    container.register({{ prefix }}{{ module_info.name }}Controller.self) { r in
-	//        return {{ prefix }}{{ module_info.name }}Controller(viewModel: r.resolve({{ prefix }}{{ module_info.name }}ViewModel.self)!)
-	//    }
-	//    
-	//    container.register({{ prefix }}{{ module_info.name }}ViewModel.self) { r in
-	//        return {{ prefix }}{{ module_info.name }}ViewModel(context: r.resolve({{ prefix }}{{ module_info.name }}Context.self)!,
-	//                                useCase: r.resolve({{ prefix }}{{ module_info.name }}UseCase.self)!,
-	//                                navigator: r.resolve({{ prefix }}{{ module_info.name }}Navigator.self)!)
-	//    }
-	//    container.register({{ prefix }}{{ module_info.name }}Context.self) { _ in return {{ prefix }}Base{{ module_info.name }}Context() }
-	//    container.register({{ prefix }}{{ module_info.name }}UseCase.self) { r in return {{ prefix }}Base{{ module_info.name }}UseCase() }
-	//    container.register({{ prefix }}{{ module_info.name }}Navigator.self) { r in
-	//        return {{ prefix }}Base{{ module_info.name }}Navigator(navigationController: UINavigationController(),
-	//                                    dependencyResolver: r.resolve({{ prefix }}DependencyResolver.self)!)
-	//    }
+	//func register{{ module_info.name }}(container: Container) {
+	//    container.register({{ prefix }}{{ module_info.name }}Controller.self) { resolver in
+	//        {{ prefix }}{{ module_info.name }}Controller(
+	//			viewModel: resolver.resolve({{ prefix }}{{ module_info.name }}ViewModel.self)!
+	//		)
+	//    }.inObjectScope(.transient)
+	//
+	//    container.register({{ prefix }}{{ module_info.name }}ViewModel.self) { resolver in
+	//        {{ prefix }}{{ module_info.name }}ViewModel(
+	//			context: resolver.resolve({{ prefix }}{{ module_info.name }}Context.self)!,
+	//			useCase: resolver.resolve({{ prefix }}{{ module_info.name }}UseCase.self)!,
+	//			navigator: resolver.resolve({{ prefix }}{{ module_info.name }}Navigator.self)!
+	//		)
+	//    }.inObjectScope(.transient)
+	//
+	//    container.register({{ prefix }}{{ module_info.name }}Context.self) { _ in
+	//		{{ prefix }}Base{{ module_info.name }}Context()
+	//    }.inObjectScope(.transient)
+	//
+	//    container.register({{ prefix }}{{ module_info.name }}UseCase.self) { resolver in
+	//		{{ prefix }}Base{{ module_info.name }}UseCase()
+	//	}.inObjectScope(.transient)
+	//
+	//    container.register({{ prefix }}{{ module_info.name }}Navigator.self) { resolver in
+	//        {{ prefix }}Base{{ module_info.name }}Navigator(
+	//			dependencyResolver: resolver.resolve({{ prefix }}DependencyResolver.self)!
+	//		)
+	//    }.inObjectScope(.transient)
 	//}
+
 }
 
+// MARK: - Private / Setup
+
 private extension {{ prefix }}{{ module_info.name }}Controller {
+
+	func setupView() {
+
+	}
+
 	func setupBinding() {
 	    let input = {{ prefix }}{{ module_info.name }}ViewModel.Input()
 	    let output = viewModel.transform(input: input)    
@@ -53,4 +64,11 @@ private extension {{ prefix }}{{ module_info.name }}Controller {
 	func localize() {
 	    
 	}
+
+}
+
+// MARK: - Reactive
+
+extension Reactive where Base: {{ prefix }}{{ module_info.name }}Controller {
+
 }

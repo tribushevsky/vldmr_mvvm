@@ -1,8 +1,8 @@
 # Template information section
 name: vldmr_mvvm
-summary: Swift generamba template for the iOS Clean Architecture  updated and by VLDMR.
+summary: Swift generamba template for the iOS Clean Architecture updated and by VLDMR.
 author: VLDMR
-version: 1.0.0
+version: 1.1.0
 license: "MIT"
 
 # The declarations for code files
